@@ -13,6 +13,8 @@ const typeDefs = gql`
         description: String
     }
 
+
+
     enum Subject {
         MATH
         ENGLISH
@@ -21,6 +23,14 @@ const typeDefs = gql`
     }
     type Query {
         questions: [Question]
+    }
+    type Mutation {
+        createQuestion(input: CreateQuestionInput!): Question
+    }
+    input CreateQuestionInput{
+        problem: String!
+        subject: Subject!
+        correctIndex: Int
     }
 
 
