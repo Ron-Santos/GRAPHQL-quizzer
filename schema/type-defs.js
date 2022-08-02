@@ -28,9 +28,15 @@ const typeDefs = gql`
         createQuestion(input: CreateQuestionInput!): Question
     }
     input CreateQuestionInput{
-        problem: String!
-        subject: Subject!
+        problem: String
+        subject: Subject = ENGLISH
         correctIndex: Int
+        answers: [AnswerInput]
+    }
+    input AnswerInput {
+        index: Int
+        description:String
+        
     }
 
 

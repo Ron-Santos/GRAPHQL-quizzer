@@ -14,8 +14,6 @@ mongoose.connect("mongodb://localhost/graphqltest",()=>{
 
 
 
-
-
 const server = new ApolloServer({typeDefs, resolvers})
 
 
