@@ -8,15 +8,8 @@ const { v4: uuidv4 } = require('uuid');
 const resolvers = { 
     Query: {
         questions: (parent, args)=>{
-            // console.log("question")
-            // console.log(QuestionList)
-            let output = Question.find()
-            // async function questionFindAll() {
-            //     const questionObject = await Question.find()
-            //     console.log(questionObject)
-            //     return questionObject
-            // }
-            console.log(output)
+            Question.find({}).then(item=>{ console.log(item)})
+            // console.log(output)
             return QuestionList;
         }
     },
@@ -33,9 +26,15 @@ const resolvers = {
             console.log(args.input.answers)
             console.log(question)
             let newQuestion = new Question(question);
-
+            newQuestion.save();
             return question            
+        },
+        createQuiz: (parent, args)=>{
+            const quiz = {}
+            console.log(args)
+            return quiz
         }
+
     }
 }
 

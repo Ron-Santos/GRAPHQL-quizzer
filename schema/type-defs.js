@@ -26,7 +26,22 @@ const typeDefs = gql`
     }
     type Mutation {
         createQuestion(input: CreateQuestionInput!): Question
+        createQuiz(input:CreateQuizInput!): Quiz
     }
+    input CreateQuizInput {
+        problem: [Quiz]        
+    }
+    type Quiz {
+        totalScore: Int
+        quizItems: [QuizItem]
+        
+    }
+    type QuizItem {
+        questionId: String
+        correctIndex: Int
+        inputIndex: Int
+    }
+
     input CreateQuestionInput{
         problem: String
         subject: Subject = ENGLISH
